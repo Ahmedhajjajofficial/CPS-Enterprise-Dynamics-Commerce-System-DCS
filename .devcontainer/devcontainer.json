@@ -1,0 +1,38 @@
+{
+    "name": "CPS-Enterprise-Development-Environment",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "features": {
+        "ghcr.io/devcontainers/features/rust:1": {
+            "version": "latest",
+            "profile": "minimal"
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.10",
+            "installTools": true
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "ms-python.python",
+                "ms-python.vscode-pylint",
+                "Dart-Code.flutter",
+                "Dart-Code.dart-code",
+                "tamasfe.even-better-toml",
+                "serayuzgur.crates",
+                "ms-azuretools.vscode-docker",
+                "usernamehw.errorlens"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "rust-analyzer.checkOnSave.command": "clippy",
+                "editor.formatOnSave": true
+            }
+        }
+    },
+    "postCreateCommand": "rustup component add clippy rustfmt && pip install --upgrade pip",
+    "remoteUser": "vscode"
+}
