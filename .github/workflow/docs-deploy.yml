@@ -1,38 +1,60 @@
-name: deployment
-
+name: Deploy Documentation
 on:
   push:
     branches:
       - main
     paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
+      - docs/**
+      - mkdocs.yml
+      - .github/workflows/docs-deploy.yml
+  workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      
-      - uses: actions/setup-python@v5
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
-          
-      - run: echo "cache_id=$(date +%U)" >> $GITHUB_ENV
-      
-      - uses: actions/cache@v4
+
+      - name: Cache Pip Dependencies
+        uses: actions/cache@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
+          path: ~/.cache/pip
+          key: ubuntu-pip
           restore-keys: |
-            mkdocs-material-
-            
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
-      
+            ubuntu-pip
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material mkdocs-minify-plugin pymdown-extensions pygments
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build Documentation
+        run: mkdocs build --clean
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
