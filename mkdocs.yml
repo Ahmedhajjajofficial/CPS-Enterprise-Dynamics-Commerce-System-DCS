@@ -1,0 +1,39 @@
+site_name: CPS Enterprise DCS
+site_url: https://ahmedhajjajofficial.github.io/CPS-Enterprise-Dynamics-Commerce-System-DCS/
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: cyan
+    - scheme: default
+      primary: teal
+      accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - code.copy
+    - search.suggest
+    - search.highlight
+
+nav:
+  - System Architecture: architecture.md
+  - API Reference: api.md
+  - Development Guide: development.md
+  - Deployment Manual: deployment.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+
