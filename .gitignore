@@ -21,8 +21,8 @@ Thumbs.db
 
 # Go
 vendor/
-*.exe
+.exe
 
 # Python
-*.pyc
-*.egg-info/
+.pyc
+.egg-info/
