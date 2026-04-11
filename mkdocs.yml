@@ -3,8 +3,8 @@ site_url: https://ahmedhajjajofficial.github.io/CPS-Enterprise-Dynamics-Commerce
 
 theme:
   name: material
-  language: en # Primary: English
-  direction: ltr
+  language: ar # Primary: Arabic
+  direction: rtl
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
