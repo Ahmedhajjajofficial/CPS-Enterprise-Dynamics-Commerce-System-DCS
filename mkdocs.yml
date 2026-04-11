@@ -31,6 +31,9 @@ theme:
 extra_css:
   - stylesheets/glassmorphism.css
 
+extra_html:
+  - index.html
+
 nav:
   - Architecture: architecture.md
   - API: api.md
