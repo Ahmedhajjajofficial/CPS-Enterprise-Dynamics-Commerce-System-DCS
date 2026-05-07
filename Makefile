@@ -143,6 +143,6 @@ clean-all: clean ## Remove all artifacts including node_modules and venv
 proto: ## Generate protobuf code from .proto definitions
 	@echo "Generating protobuf code..."
 	cd cps-enterprise-dcs/proto && \
-		protoc --go_out=. --go-grpc_out=. cps_enterprise_v4.proto && \
-		python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. cps_enterprise_v4.proto
+		protoc -I. -I/usr/local/node_packages/node_modules/google-gax/build/protos --go_out=. --go-grpc_out=. cps_enterprise_v4.proto && \
+		python3 -m grpc_tools.protoc -I. -I/usr/local/node_packages/node_modules/google-gax/build/protos --python_out=. --grpc_python_out=. cps_enterprise_v4.proto
 	@echo "Protobuf code generated."

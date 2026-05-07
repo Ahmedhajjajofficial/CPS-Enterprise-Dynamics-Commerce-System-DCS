@@ -197,7 +197,7 @@ Events are organized into domain-specific flows:
 | `SAGA_STEP_COMPLETED` | 61 | Saga step completed |
 | `SAGA_COMPENSATION_TRIGGERED` | 62 | Compensation (rollback) started |
 | `SAGA_COMPENSATION_COMPLETED` | 63 | Compensation completed |
-| `SAGA_FAILED` | 64 | Saga failed |
+| `EVENT_SAGA_FAILED` | 64 | Saga failed |
 | `TRANSACTION_REJECTED` | 65 | Transaction rejected |
 
 ### Agent Flow
