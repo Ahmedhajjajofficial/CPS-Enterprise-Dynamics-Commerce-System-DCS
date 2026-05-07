@@ -64,7 +64,7 @@ build-pos: ## Build POS interface (React/Vite)
 	cd $(POS_DIR) && npm run build
 
 build-regional-agent: ## Build regional agent (Go)
-	cd $(REGIONAL_AGENT_DIR) && go build -o bin/regional-agent ./...
+	cd $(REGIONAL_AGENT_DIR) && mkdir -p bin && go build -o bin/ ./...
 
 # ─── Development Servers ──────────────────────────────────────────────────────
 
