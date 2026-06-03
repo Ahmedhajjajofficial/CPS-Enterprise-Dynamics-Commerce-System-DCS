@@ -43,7 +43,7 @@
             }
         }
     },
-    "postCreateCommand": "pip install --upgrade pip && pip install -r cps-enterprise-dcs/local-agent/requirements.txt && cd cps-enterprise-dcs/regional-agent && go mod download && cd ../../app && npm install && cd ../cps-enterprise-dcs/pos-interface && npm install",
+    "postCreateCommand": "pip install --upgrade pip && pip install -r cps-enterprise-dcs/local-agent/requirements.txt && (cd cps-enterprise-dcs/regional-agent && go mod download) && (cd app && npm install) && (cd cps-enterprise-dcs/pos-interface && npm install)",
     "forwardPorts": [3000, 5173, 5432, 6379, 9090, 9092, 50051, 50052],
     "remoteUser": "vscode"
 }
