@@ -5,6 +5,8 @@ theme:
   name: material
   language: ar # Primary: Arabic
   direction: rtl
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -31,10 +33,15 @@ theme:
 extra_css:
   - stylesheets/glassmorphism.css
 
-extra_html:
-  - index.html
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com
+
+copyright: "© 2025 CP'S Enterprise DCS. All rights reserved."
 
 nav:
+  - Home: index.md
   - Architecture: architecture.md
   - API: api.md
   - Development: development.md
